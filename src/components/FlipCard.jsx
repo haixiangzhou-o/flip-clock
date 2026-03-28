@@ -1,6 +1,19 @@
+import { useState, useEffect, useRef } from 'react'
 import './FlipCard.css'
 
-export default function FlipCard({ digit, prevDigit, isFlipping }) {
+export default function FlipCard({ digit, prevDigit }) {
+  const [isFlipping, setIsFlipping] = useState(false)
+  const prevDigitRef = useRef(digit)
+
+  useEffect(() => {
+    if (prevDigitRef.current !== digit) {
+      setIsFlipping(true)
+      const timer = setTimeout(() => setIsFlipping(false), 600)
+      prevDigitRef.current = digit
+      return () => clearTimeout(timer)
+    }
+  }, [digit])
+
   return (
     <div className="digit-wrapper">
       <div className={`flip-card-3d ${isFlipping ? 'flipping' : ''}`}>
