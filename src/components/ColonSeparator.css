@@ -4,19 +4,15 @@
   justify-content: center;
   gap: 20px;
   padding: 0 5px;
-  height: 120px;
+  height: 140px;
 }
 
 .colon {
-  font-size: 48px;
+  font-size: 56px;
   font-weight: 400;
   color: #b87333;
   font-family: 'Bebas Neue', sans-serif;
   animation: pulse 1s ease-in-out infinite;
-}
-
-.colon:last-child {
-  animation-delay: 0.5s;
 }
 
 @keyframes pulse {
