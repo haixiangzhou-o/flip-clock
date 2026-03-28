@@ -1,0 +1,19 @@
+.flip-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.digits-container {
+  display: flex;
+  gap: 8px;
+}
+
+.unit-label {
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  color: #b87333;
+  letter-spacing: 3px;
+  margin-top: 15px;
+  text-transform: uppercase;
+}

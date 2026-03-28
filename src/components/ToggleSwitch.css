@@ -1,0 +1,77 @@
+.toggle-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toggle-switch {
+  position: relative;
+  width: 52px;
+  height: 26px;
+  border-radius: 13px;
+  border: 2px solid #b87333;
+  background: #1a1815;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.3s ease;
+}
+
+.toggle-switch.on {
+  background: #2a2520;
+}
+
+.toggle-track {
+  position: absolute;
+  top: 50%;
+  left: 6px;
+  right: 6px;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+}
+
+.toggle-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #555;
+  transition: all 0.3s ease;
+}
+
+.toggle-switch.on .toggle-dot.right {
+  background: #b87333;
+  box-shadow: 0 0 6px rgba(184, 115, 51, 0.8);
+}
+
+.toggle-switch:not(.on) .toggle-dot.left {
+  background: #b87333;
+  box-shadow: 0 0 6px rgba(184, 115, 51, 0.8);
+}
+
+.toggle-knob {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #b87333;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.toggle-switch.on .toggle-knob {
+  transform: translateX(26px);
+}
+
+.toggle-label {
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  font-weight: bold;
+  color: #b87333;
+  letter-spacing: 1px;
+  min-width: 32px;
+  text-align: left;
+}

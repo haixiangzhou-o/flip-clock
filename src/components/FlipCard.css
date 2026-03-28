@@ -1,0 +1,141 @@
+.digit-wrapper {
+  perspective: 400px;
+}
+
+.flip-card-3d {
+  position: relative;
+  width: 70px;
+  height: 120px;
+}
+
+.card-top,
+.card-bottom,
+.flip-card-top,
+.flip-card-bottom {
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  overflow: hidden;
+  background: linear-gradient(180deg, #f5f0e6 0%, #e8e0d0 100%);
+  backface-visibility: hidden;
+}
+
+.card-top,
+.flip-card-top {
+  top: 0;
+  border-radius: 8px 8px 0 0;
+  border-bottom: 1px solid #1a1a1a;
+  box-shadow:
+    inset 0 2px 4px rgba(255, 255, 255, 0.8),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.card-bottom,
+.flip-card-bottom {
+  bottom: 0;
+  border-radius: 0 0 8px 8px;
+  box-shadow:
+    inset 0 -2px 4px rgba(0, 0, 0, 0.1),
+    0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.card-inner {
+  width: 100%;
+  height: 200%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #f5f0e6 0%, #e8e0d0 100%);
+}
+
+.card-top .card-inner,
+.flip-card-top .card-inner {
+  transform-origin: bottom center;
+}
+
+.card-bottom .card-inner,
+.flip-card-bottom .card-inner {
+  transform-origin: top center;
+}
+
+.card-top .card-inner span,
+.flip-card-top .card-inner span {
+  position: absolute;
+  top: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100%;
+  padding-top: 2px;
+}
+
+.card-bottom .card-inner span,
+.flip-card-bottom .card-inner span {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100%;
+  padding-top: 2px;
+}
+
+.flip-card-top .card-inner {
+  transform-origin: bottom center;
+  animation: flipTop 600ms ease-in-out forwards;
+}
+
+.flip-card-bottom .card-inner {
+  transform-origin: top center;
+  animation: flipBottom 600ms ease-in-out forwards;
+}
+
+@keyframes flipTop {
+  0% {
+    transform: rotateX(0deg);
+  }
+  50% {
+    transform: rotateX(-90deg);
+  }
+  100% {
+    transform: rotateX(-90deg);
+  }
+}
+
+@keyframes flipBottom {
+  0% {
+    transform: rotateX(90deg);
+  }
+  50% {
+    transform: rotateX(90deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+
+.flip-card-3d:not(.flipping) .flip-card-top,
+.flip-card-3d:not(.flipping) .flip-card-bottom {
+  display: none;
+}
+
+.flip-card-3d:not(.flipping) .card-top .card-inner span,
+.flip-card-3d:not(.flipping) .card-bottom .card-inner span {
+  font-size: 56px;
+  font-weight: 400;
+  color: #2a2a2a;
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+.flip-card-3d.flipping .card-top,
+.flip-card-3d.flipping .card-bottom {
+  display: none;
+}
+
+.flip-card-3d.flipping .flip-card-top .card-inner span,
+.flip-card-3d.flipping .flip-card-bottom .card-inner span {
+  font-size: 56px;
+  font-weight: 400;
+  color: #2a2a2a;
+  font-family: 'Bebas Neue', sans-serif;
+}
